@@ -1,0 +1,15 @@
+#!/bin/bash -x
+
+export PATH_TO_PROJECT=/home/ipscate/scripts-jferraz/estudo-scripts
+export PATH_TO_RECOVERY_DIRECTORY=/home/ipscate/scripts-jferraz/estudo-scripts
+
+cd $PATH_TO_PROJECT/.git/lost-found/other
+
+COUNTER=0
+for f in `ls`; do
+  echo "Processing $f file... $COUNTER"
+  echo "==>$COUNTER<=="
+  git show $f > "$PATH_TO_RECOVERY_DIRECTORY/script$COUNTER"
+  let COUNTER=$COUNTER+1;
+done
+
